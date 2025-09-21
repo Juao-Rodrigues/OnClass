@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/admin.css">
+  <title>ONCLASS - Administrador</title>
+</head>
+<body>
+  <div class="container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <h2 class="logo">ONCLASS</h2>
+      <ul class="menu">
+        <li>
+          <img src="../img/Home.png" alt="Home">
+          <a href="../telas/homeAdmin.html">Tela Inicial</a>
+        </li>
+        <li>
+          <img src="../img/Admin Settings Male.png" alt="Administrador">
+          <a href="#">Administrador</a>
+        </li>
+        <li>
+          <img src="../img/Administrator Male.png" alt="Docente">
+          <a href="../telas/docente.html">Docente</a>
+        </li>
+        <li>
+          <img src="../img/Student Male.png" alt="Discente">
+          <a href="#">Discente</a>
+        </li>
+      </ul>
+      <div class="logout">
+        <img src="../img/Logout Rounded Left.png" alt="Logout">
+        <a href="../index.html">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="main-content">
+      <header class="header">
+        <h1>ADMINISTRADOR</h1>
+      </header>
+
+      <!-- Filtros -->
+      <div class="filters">
+        <select id="select-docente">
+          <option value="">DOCENTE</option>
+        </select>
+        <select id="select-curso">
+          <option value="">CURSO</option>
+        </select>
+        <select id="select-turno">
+          <option value="">TURNO</option>
+        </select>
+        <select id="select-semestre">
+          <option value="">SEMESTRE</option>
+        </select>
+        <button id="btn-filtrar">Filtrar</button>
+      </div>
+
+      <!-- Botão para adicionar professor -->
+      <div class="actions">
+        <button id="btn-add-professor" class="btn-primary">Adicionar Professor</button>
+      </div>
+
+      <!-- Grade de horários -->
+      <section class="schedule">
+        <div id="schedule-grid" class="days">
+          <!-- Horários carregados via JS -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal de cadastro de professor -->
+  <div id="modal-professor" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal">&times;</span>
+      <h2>Cadastrar Professor</h2>
+      <form id="form-professor">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="matricula">Matricula</label>
+        <input type="text" id="matricula" name="matricula" required>
+
+        <label for="disciplina">Disciplina</label>
+        <input type="text" id="disciplina" name="disciplina" required>
+        
+        <label for="curso">Curso</label>
+        <input type="text" id="curso" name="curso" required>
+        
+        <label for="turma">Turma</label>
+        <input type="text" id="turma" name="turma" required>
+        
+        <label for="turno">Turno</label>
+        <input type="text" id="turno" name="turno" required>
+        
+        <label for="semestre">Semestre</label>
+        <input type="text" id="semestre" name="semestre" required>
+        
+        <label for="diaSemana">Dia da Semana </label>
+        <input type="text" id="diaSemana" name="diaSemana" required>
+        
+        <label for="horario">Horario</label>
+        <input type="time" id="horario" name="horario" required>
+
+        <button type="submit" class="btn-primary">Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>
