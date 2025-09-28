@@ -51,10 +51,10 @@ document.querySelectorAll(".toggle-senha").forEach(botao => {
 
     if (input.type === "password") {
       input.type = "text";
-      img.src = "img/olho.png";
+      img.src = "../img/olho.png";
     } else {
       input.type = "password";
-      img.src = "img/fechado.png";
+      img.src = "../img/fechado.png";
     }
   });
 });
@@ -71,7 +71,7 @@ document.getElementById("formAdmin").addEventListener("submit", function(e) {
   const senha = document.getElementById("senhaAdmin").value.trim();
 
   if (matricula === loginAdmin.matricula && senha === loginAdmin.senha) {
-    window.location.href = "./telas/homeAdmin.html";
+    window.location.href = "../telas/homeAdmin.html";
   } else {
     alert("Matrícula ou senha incorretos para Administrador!");
   }
@@ -85,7 +85,7 @@ document.getElementById("formDocente").addEventListener("submit", function(e) {
   const senha = document.getElementById("senhaDocente").value.trim();
 
   if (matricula === loginDocente.matricula && senha === loginDocente.senha) {
-    window.location.href = "./telas/docente.html";
+    window.location.href = "../telas/docente.html";
   } else {
     alert("Matrícula ou senha incorretos para Docente!");
   }

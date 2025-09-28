@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const scheduleGrid = document.getElementById('schedule-grid');
+// botões//
   const btnFiltrar = document.getElementById('btn-filtrar');
   const btnAddProfessor = document.getElementById('btn-add-professor');
+// modals//
   const modalProfessor = document.getElementById('modal-professor');
   const closeModal = document.getElementById('close-modal');
+// formularios//
   const formProfessor = document.getElementById('form-professor');
+
+  // const btnAddAluno = document.getElementById('btn-add-aluno');
+  // const modalAluno = document.document.getElementById('modal-aluno');
+  // const closeModalAluno = document.getElementById('close-modal-aluno');
+  // const formluno= document.getElementById('form-aluno');
 
   const API_URL = 'http://localhost:3000/horarios'; // Troque para a sua API real
   const API_PROFESSORES = 'http://localhost:3000/professores'; // API para cadastro
@@ -65,16 +73,28 @@ document.addEventListener('DOMContentLoaded', () => {
     modalProfessor.style.display = 'flex';
   });
 
+  // btnAddAluno.addEventListener('click', () => {
+  //   modalAluno.style.display= 'flex';
+  // });
+
   // Fechar modal
   closeModal.addEventListener('click', () => {
     modalProfessor.style.display = 'none';
   });
+
+  // closeModalAluno.addEventListener('click', () => {
+  //   modalAluno.style.display = 'none';
+  // });
 
   // Fechar modal clicando fora
   window.addEventListener('click', (e) => {
     if (e.target === modalProfessor) {
       modalProfessor.style.display = 'none';
     }
+
+    // if (e.target === modalAluno){
+    //   modalAluno.style.display = 'none';
+    // }
   });
 
   // Salvar professor

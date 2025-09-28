@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/admin.css">
   <title>ONCLASS - Administrador</title>
 </head>
+
 <body>
   <div class="container">
     <!-- Barra lateral -->
@@ -18,20 +20,20 @@
         </li>
         <li>
           <img src="../img/Admin Settings Male.png" alt="Administrador">
-          <a href="#">Administrador</a>
+          <a href="../telas/admin.html">Administrador</a>
         </li>
         <li>
           <img src="../img/Administrator Male.png" alt="Docente">
-          <a href="../telas/docente.html">Docente</a>
+          <a href="../telas/docenteAdm.html">Docente</a>
         </li>
         <li>
           <img src="../img/Student Male.png" alt="Discente">
-          <a href="#">Discente</a>
+          <a href="../telas/discenteAdm.html">Discente</a>
         </li>
       </ul>
       <div class="logout">
         <img src="../img/Logout Rounded Left.png" alt="Logout">
-        <a href="../index.html">Logout</a>
+        <a href="../telas/home.html">Logout</a>
       </div>
     </aside>
 
@@ -61,6 +63,8 @@
       <!-- Botão para adicionar professor -->
       <div class="actions">
         <button id="btn-add-professor" class="btn-primary">Adicionar Professor</button>
+        <button id="btn-add-aluno" class="btn-primary">Adicionar Aluno</button>
+        <button id="btn-add-curso" class="btn-primary">Adicionar Curso</button>
       </div>
 
       <!-- Grade de horários -->
@@ -86,22 +90,22 @@
 
         <label for="disciplina">Disciplina</label>
         <input type="text" id="disciplina" name="disciplina" required>
-        
+
         <label for="curso">Curso</label>
         <input type="text" id="curso" name="curso" required>
-        
+
         <label for="turma">Turma</label>
         <input type="text" id="turma" name="turma" required>
-        
+
         <label for="turno">Turno</label>
         <input type="text" id="turno" name="turno" required>
-        
+
         <label for="semestre">Semestre</label>
         <input type="text" id="semestre" name="semestre" required>
-        
+
         <label for="diaSemana">Dia da Semana </label>
         <input type="text" id="diaSemana" name="diaSemana" required>
-        
+
         <label for="horario">Horario</label>
         <input type="time" id="horario" name="horario" required>
 
@@ -110,6 +114,66 @@
     </div>
   </div>
 
+  <!-- modal cadastro de aluno
+  <div id="modal-aluno" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal-aluno">&times;</span>
+      <h2>Cadastrar Aluno</h2>
+      <form id="form-aluno">
+        <label for="nome-aluno">Nome Completo</label>
+        <input type="text" id="nome-aluno" name="nome-aluno" required>
+
+        <label for="matricula-aluno">Matricula</label>
+        <input type="text" id="matricula-aluno" name="matricula-aluno" required>
+
+        <label for="disciplina-aluno">Disciplina</label>
+        <input type="text" id="disciplina-aluno" name="disciplina-aluno" required>
+
+        <label for="curso-aluno">Curso</label>
+        <input type="text" id="curso-aluno" name="curso-aluno" required>
+
+        <label for="turma-aluno">Turma</label>
+        <input type="text" id="turma-aluno" name="turma-aluno" required>
+
+        <label for="turno-aluno">Turno</label>
+        <input type="text" id="turno-aluno" name="turno-aluno" required>
+
+        <label for="semestre-aluno">Semestre</label>
+        <input type="text" id="semestre-aluno" name="semestre-aluno" required>
+
+        <label for="diaSemana-aluno">Dia da Semana </label>
+        <input type="text" id="diaSemana-aluno" name="diaSemana-aluno" required>
+
+        <label for="horario-aluno">Horario</label>
+        <input type="time" id="horario-aluno" name="horario-aluno" required>
+
+        <button type="submit" class="btn-primary">Salvar</button>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- Modal de cadastro de curso
+  <div id="modal-curso" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal-curso">&times;</span>
+      <h2>Cadastrar Curso</h2>
+      <form id="form-curso">
+        <label for="nome-curso">Nome do Curso:</label>
+        <input type="text" id="nome-curso" name="nome-curso" required>
+
+        <label for="codigo-curso">Código do Curso:</label>
+        <input type="text" id="codigo-curso" name="codigo-curso" required>
+
+        <label for="descricao-curso">Descrição:</label>
+        <textarea id="descricao-curso" name="descricao-curso" required></textarea>
+
+        <button type="submit" class="btn-primary">Salvar</button>
+      </form>
+    </div>
+  </div> -->
+
+
   <script src="../js/admin.js"></script>
 </body>
+
 </html>
