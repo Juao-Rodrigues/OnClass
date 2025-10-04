@@ -1,22 +1,23 @@
-const btnAddProfessor = document.getElementById('btn-add-professor');
-const modalProfessor = document.getElementById('modal-professor');
-const closeModal = document.getElementById('close-modal');
-const formProfessor = document.getElementById('form-professor');
+const btnAddAluno = document.getElementById('btn-add-aluno');
+const modalAluno = document.getElementById('modal-aluno');
+const closeModal = document.getElementById('close-modal-aluno');
+const formAluno = document.getElementById('form-aluno');
 
 // Abrir modal//
-btnAddProfessor.addEventListener('click', () => {
-    modalProfessor.style.display = 'flex';
+btnAddAluno.addEventListener('click', () => {
+    modalAluno.style.display = 'flex';
 });
 
 // Fechar modal
 closeModal.addEventListener('click', () => {
-    modalProfessor.style.display = 'none';
+    modalAluno.style.display = 'none';
 });
 
 // Fechar modal clicando fora
 window.addEventListener('click', (e) => {
-if (e.target === modalProfessor) {
-    modalProfessor.style.display = 'none';
+if (e.target === modalAluno) {
+    modalAluno.style.display = 'none';
  }
 
 });
+console.log(btnAddAluno, modalAluno, closeModal);

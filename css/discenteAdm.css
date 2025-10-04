@@ -101,6 +101,17 @@ body {
   font-weight: bold;
 }
 
+.textoBotao{
+  margin-left: 20px;
+}
+
+.textoBotao h2{
+  margin-bottom: 5px;
+}
+.textoBotao h3{
+  margin: 0;
+}
+
 /*Botão primário*/
 .btn-primary {
   background-color: #00257c;
@@ -110,7 +121,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 20px;
 }
 
@@ -143,6 +154,7 @@ body {
 
 .modal-content h2 {
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .modal-content form {
@@ -173,4 +185,74 @@ body {
 /* Ações */
 .actions {
   margin-bottom: 20px;
+}
+
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 280px;
+  margin-right: 20px;
+  margin-left: auto;
+}
+
+.card {
+  
+  background: #00257c;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+
+.card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  
+}
+
+.card h3 {
+  font-size: 20px;
+  color: #fafafa;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.alunos-recentes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 680px;
+  padding: 20px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  margin-left: 245px;
+}
+
+.alunos-recentes h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #00257c;
+}
+
+.alunos-recentes ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alunos-recentes ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
 }

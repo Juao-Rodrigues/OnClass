@@ -42,47 +42,80 @@
       <header class="header">
         <h1>ADMINISTRADOR</h1>
       </header>
-
+      
+      <div class="textoBotao">
+        <h2>Docente
+          <h3>Cadastre novos professores</h3>
+        </h2>
+        
+      </div>
       <!-- Botão para adicionar professor -->
       <div class="actions">
         <button id="btn-add-professor" class="btn-primary">Adicionar Professor</button>
       </div>
 
-  <!-- Modal de cadastro de professor -->
-  <div id="modal-professor" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" id="close-modal">&times;</span>
-      <h2>Cadastrar Professor</h2>
-      <form id="form-professor">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" name="nome" required>
+      <!-- Modal de cadastro de professor -->
+      <div id="modal-professor" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" id="close-modal">&times;</span>
 
-        <label for="matricula">Matricula</label>
-        <input type="text" id="matricula" name="matricula" required>
+          <h2>Cadastrar Professor</h2>
 
-        <label for="disciplina">Disciplina</label>
-        <input type="text" id="disciplina" name="disciplina" required>
+          <form id="form-professor">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
 
-        <label for="curso">Curso</label>
-        <input type="text" id="curso" name="curso" required>
+            <label for="matricula">Matricula</label>
+            <input type="text" id="matricula" name="matricula" required>
 
-        <label for="turma">Turma</label>
-        <input type="text" id="turma" name="turma" required>
+            <label for="disciplina">Disciplina</label>
+            <input type="text" id="disciplina" name="disciplina" required>
 
-        <label for="turno">Turno</label>
-        <input type="text" id="turno" name="turno" required>
+            <label for="curso">Curso</label>
+            <input type="text" id="curso" name="curso" required>
 
-        <label for="semestre">Semestre</label>
-        <input type="text" id="semestre" name="semestre" required>
+            <label for="turma">Turma</label>
+            <input type="text" id="turma" name="turma" required>
 
-        <label for="diaSemana">Dia da Semana </label>
-        <input type="text" id="diaSemana" name="diaSemana" required>
+            <label for="turno">Turno</label>
+            <input type="text" id="turno" name="turno" required>
 
-        <label for="horario">Horario</label>
-        <input type="time" id="horario" name="horario" required>
+            <label for="semestre">Semestre</label>
+            <input type="text" id="semestre" name="semestre" required>
 
-        <button type="submit" class="btn-primary">Salvar</button>
-      </form>
-    </div>
+            <label for="diaSemana">Dia da Semana </label>
+            <input type="date" id="diaSemana" name="diaSemana" required>
+
+            <label for="horario">Horario</label>
+            <input type="time" id="horario" name="horario" required>
+
+            <button type="submit" class="btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+
+       <!-- Cards Informativos -->
+        <div class="cards">
+          <div class="card">
+            <img src="../img/Administrator Male.png" alt="professor">
+            <h3>45</h3>
+            <p>Docentes Ativos</p>
+          </div>
+    </main>
   </div>
-<script src="../js/docenteAdm.js"></script>
+
+ <section class="alunos-recentes">
+  <h2>Docentes Recém-Cadastrados</h2>
+  <ul>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+    <li> Nome:Maria Roberta Silva <br>Matrícula: 01212346  </li>
+  </ul>
+</section>
+
+      <script src="../js/docenteAdm.js"></script>
+</body>
