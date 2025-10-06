@@ -85,7 +85,7 @@ document.getElementById("formDocente").addEventListener("submit", function(e) {
   const senha = document.getElementById("senhaDocente").value.trim();
 
   if (matricula === loginDocente.matricula && senha === loginDocente.senha) {
-    window.location.href = "../telas/docente.html";
+    window.location.href = "../telas/professor.html";
   } else {
     alert("Matrícula ou senha incorretos para Docente!");
   }

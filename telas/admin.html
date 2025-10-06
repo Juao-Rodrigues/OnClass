@@ -65,14 +65,53 @@
         <button id="btn-add-curso" class="btn-primary">Adicionar Curso</button>
       </div>
 
-      <!-- Grade de horários -->
-      <section class="schedule">
-        <div id="schedule-grid" class="days">
-          <!-- Horários carregados via JS -->
-        </div>
-      </section>
-    </main>
+<div class="quadro-horarios">
+  <h2>Quadro de Horários</h2>
+
+  <table id="tabelaHorarios">
+    <thead>
+      <tr>
+        <th>Dia</th>
+        <th>Horário</th>
+        <th>Curso</th>
+        <th>Turma</th>
+        <th>Professor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <button id="abrirModal">Adicionar Horário</button>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="fechar">&times;</span>
+    <h3 id="modalTitulo">Adicionar Horário</h3>
+
+    <form id="formHorario">
+      <label>Dia</label>
+      <input type="text" id="dia" required>
+
+      <label>Horário</label>
+      <input type="text" id="horario" required>
+
+      <label>Curso</label>
+      <input type="text" id="curso" required>
+
+      <label>Turma</label>
+      <input type="text" id="turma" required>
+
+      <label>Professor</label>
+      <input type="text" id="professor" required>
+
+      <button type="submit" id="salvarHorario">Salvar</button>
+    </form>
   </div>
+</div>
+
 
   <!-- Modal de cadastro de curso -->
   <div id="modal-curso" class="modal">

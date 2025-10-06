@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const scheduleGrid = document.getElementById('schedule-grid');
+
 // botões//
   const btnFiltrar = document.getElementById('btn-filtrar');
   const btnAddCurso = document.getElementById('btn-add-curso');
@@ -8,46 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = document.getElementById('close-modal-curso');
 // formularios//
   const formCurso = document.getElementById('form-curso');
-
-  const API_URL = 'http://localhost:3000/horarios'; // Troque para a sua API real
-  const API_PROFESSORES = 'http://localhost:3000/professores'; // API para cadastro
-
-  // Função para carregar os horários
-  async function carregarHorarios(filtros = {}) {
-    try {
-      const queryParams = new URLSearchParams(filtros).toString();
-      const url = queryParams ? `${API_URL}?${queryParams}` : API_URL;
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Erro ao buscar os dados da API');
-
-      const data = await response.json();
-      renderSchedule(data);
-    } catch (error) {
-      console.error('Erro ao carregar horários:', error);
-    }
-  }
-
-  // Renderiza a grade
-  function renderSchedule(data) {
-    scheduleGrid.innerHTML = ''; // limpa grade
-
-    data.forEach(row => {
-      // Coluna de horário
-      const timeCell = document.createElement('div');
-      timeCell.classList.add('time-slot');
-      timeCell.textContent = row.time;
-      scheduleGrid.appendChild(timeCell);
-
-      // Colunas dos dias
-      ["segunda", "terca", "quarta", "quinta", "sexta"].forEach(day => {
-        const classCell = document.createElement('div');
-        classCell.classList.add('class-slot');
-        classCell.textContent = row[day] || "";
-        scheduleGrid.appendChild(classCell);
-      });
-    });
-  }
 
   // Evento do botão Filtrar
   btnFiltrar.addEventListener('click', () => {
@@ -59,9 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     carregarHorarios(filtros);
   });
-
-  // Carregar horários ao abrir a página
-  carregarHorarios();
 
   // Abrir modal
   btnAddCurso.addEventListener('click', () => {
@@ -80,45 +36,101 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modalCurso) {
       modalCurso.style.display = 'none';
     }
-
-    // if (e.target === modalAluno){
-    //   modalAluno.style.display = 'none';
-    // }
   });
 
-  // Salvar professor
-  formProfessor.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    const novoProfessor = {
-      nome: document.getElementById('nome').value,
-      matricula: document.getElementById('matricula').value,
-      disciplina: document.getElementById('disciplina').value,
-      curso: document.getElementById('curso').value,
-      turma: document.getElementById('turma').value,
-      turno: document.getElementById('turno').value,
-      semestre: document.getElementById('semestre').value,
-      diaSemana: document.getElementById('diaSemana').value,
-      horario: document.getElementById('horario').value
+const tabela = document.querySelector("#tabelaHorarios tbody");
+const abrirModal = document.querySelector("#abrirModal");
+const modal = document.querySelector("#modal");
+const fecharModal = document.querySelector(".fechar");
+const form = document.querySelector("#formHorario");
+const tituloModal = document.querySelector("#modalTitulo");
 
+let editandoIndex = null;
 
-    };
+let horarios = [
+  { dia: "Segunda-feira", horario: "08:00 - 10:00", curso: "ADS", turma: "A1", professor: "Nina" },
+  { dia: "Terça-feira", horario: "10:00 - 12:00", curso: "Eng. Software", turma: "B2", professor: "Lili" },
+];
 
-    try {
-      const response = await fetch(API_PROFESSORES, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(novoProfessor)
-      });
-
-      if (!response.ok) throw new Error('Erro ao cadastrar professor');
-
-      alert('Professor cadastrado com sucesso!');
-      formProfessor.reset();
-      modalProfessor.style.display = 'none';
-    } catch (error) {
-      console.error('Erro ao cadastrar professor:', error);
-      alert('Erro ao cadastrar professor');
-    }
+// Renderizar tabela
+function renderTabela() {
+  tabela.innerHTML = "";
+  horarios.forEach((h, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${h.dia}</td>
+      <td>${h.horario}</td>
+      <td>${h.curso}</td>
+      <td>${h.turma}</td>
+      <td>${h.professor}</td>
+      <td>
+        <button class="acao editar" onclick="editarHorario(${i})">Editar</button>
+        <button class="acao remover" onclick="removerHorario(${i})">Remover</button>
+      </td>
+    `;
+    tabela.appendChild(row);
   });
+}
+
+// Abrir modal
+abrirModal.addEventListener("click", () => {
+  tituloModal.textContent = "Adicionar Horário";
+  form.reset();
+  modal.style.display = "flex";
+  editandoIndex = null;
 });
+
+// Fechar modal
+fecharModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
+// Salvar horário
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const novoHorario = {
+    dia: document.querySelector("#dia").value,
+    horario: document.querySelector("#horario").value,
+    curso: document.querySelector("#curso").value,
+    turma: document.querySelector("#turma").value,
+    professor: document.querySelector("#professor").value,
+  };
+
+  if (editandoIndex !== null) {
+    horarios[editandoIndex] = novoHorario;
+  } else {
+    horarios.push(novoHorario);
+  }
+
+  renderTabela();
+  modal.style.display = "none";
+});
+
+// Editar horário
+function editarHorario(index) {
+  const h = horarios[index];
+  document.querySelector("#dia").value = h.dia;
+  document.querySelector("#horario").value = h.horario;
+  document.querySelector("#curso").value = h.curso;
+  document.querySelector("#turma").value = h.turma;
+  document.querySelector("#professor").value = h.professor;
+  tituloModal.textContent = "Editar Horário";
+  modal.style.display = "flex";
+  editandoIndex = index;
+}
+
+// Remover horário
+function removerHorario(index) {
+  if (confirm("Tem certeza que deseja remover este horário?")) {
+    horarios.splice(index, 1);
+    renderTabela();
+  }
+}
+
+renderTabela();

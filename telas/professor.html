@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Administrador</title>
+  <link rel="stylesheet" href="../css/professor.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Barra Lateral -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>ONCLASS</h2>
+      </div>
+    
+
+      <ul class="menu">
+        <li>
+          <img src="../img/Administrator Male.png" alt="Docente">
+          <a href="../telas/professor.html">Docente</a>
+        </li>
+        <li>
+          <img src="../img/Document.png" alt="Discente">
+          <a href="../telas/discenteAdm.html">Relatorio de presença</a>
+        </li>
+      </ul>
+      <div class="logout">
+        <img src="../img/Logout Rounded Left.png" alt="Logout">
+        <a href="../telas/home.html" id="logoutBtn">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Área Principal -->
+    <main class="main-content">
+      <!-- Barra Superior -->
+      <header class="header">
+        <h1>Docente</h1>
+      </header>
+    <div class="filters">
+        <select id="select-docente">
+            <option value="">DOCENTE</option>
+        </select>
+        <select id="select-curso">
+            <option value="">CURSO</option>
+        </select>
+        <select id="select-turno">
+            <option value="">TURNO</option>
+        </select>
+        <select id="select-semestre">
+            <option value="">SEMESTRE</option>
+        </select>
+    </div>
+
+    <div class="actions">
+        <button id="btn-add-qrcode" class="btn-primary">Gerar QRCode</button>
+    </div>
+
+    <!-- Modal de cadastro de professor -->
+    <div id="modal-qrcode" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" id="close-modal">&times;</span>
+
+          <h2>QR Code</h2>
+
+          <form id="form-professor">
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="curso">Curso</label>
+            <select id="select-curso">
+              <option value="">Curso</option>
+              <option value="">Análise e Desenvolvimento de Sistemas</option>
+            </select>
+
+            <label for="turma">Turma</label>
+            <select id="select-turma">
+              <option value="">Turma</option>
+              <option value="">4° Período</option>
+            </select>
+
+            <label for="turno">Turno</label>
+            <select id="select-turno">
+              <option value="">Turno</option>
+              <option value="">Manhã</option>
+              <option value="">Noite</option>
+            </select>
+
+            <label for="semestre">Semestre</label>
+            <select id="semestre">
+              <option value="">Semestre</option>
+              <option value="">1° semestre</option>
+              <option value="">2° semestre</option>
+            </select>
+
+            <label for="diaSemana">Dia da Semana </label>
+            <input type="date" id="diaSemana" name="diaSemana" required>
+
+            <label for="horario">Horario</label>
+            <input type="time" id="horario" name="horario" required>
+
+            <button type="submit" class="btn-primary">Gerar QRCode</button>
+          </form>
+        </div>
+    </div>
+
+    <div class="quadro-horarios">
+  <h2>Quadro de Horários</h2>
+  <table id="tabelaHorarios">
+    <thead>
+      <tr>
+        <th>Dia</th>
+        <th>Horário</th>
+        <th>Curso</th>
+        <th>Turma</th>
+        <th>Professor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- As linhas serão adicionadas via JavaScript -->
+    </tbody>
+  </table>
+
+  <button id="adicionarHorario">Adicionar Horário</button>
+</div>
+
+
+  <script src="../js/professor.js"></script>
+</body>
+</html>
