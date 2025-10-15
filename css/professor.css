@@ -233,3 +233,34 @@ button#adicionarHorario {
 button#adicionarHorario:hover {
   background-color: #0143a1;
 }
+/* Animação suave de entrada do modal */
+.animate-modal {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.show .animate-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Mensagem de confirmação */
+.alerta {
+  display: none;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}

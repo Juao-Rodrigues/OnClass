@@ -56,53 +56,18 @@
         <button id="btn-add-qrcode" class="btn-primary">Gerar QRCode</button>
     </div>
 
-    <!-- Modal de cadastro de professor -->
-    <div id="modal-qrcode" class="modal">
-        <div class="modal-content">
-          <span class="close-modal" id="close-modal">&times;</span>
+    <!-- Modal de gerar QRCode -->
+<div id="modal-qrcode" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="close-modal">&times;</span>
 
-          <h2>QR Code</h2>
-
-          <form id="form-professor">
-            <label for="titulo">Titulo</label>
-            <input type="text" id="titulo" name="titulo" required>
-
-            <label for="curso">Curso</label>
-            <select id="select-curso">
-              <option value="">Curso</option>
-              <option value="">Análise e Desenvolvimento de Sistemas</option>
-            </select>
-
-            <label for="turma">Turma</label>
-            <select id="select-turma">
-              <option value="">Turma</option>
-              <option value="">4° Período</option>
-            </select>
-
-            <label for="turno">Turno</label>
-            <select id="select-turno">
-              <option value="">Turno</option>
-              <option value="">Manhã</option>
-              <option value="">Noite</option>
-            </select>
-
-            <label for="semestre">Semestre</label>
-            <select id="semestre">
-              <option value="">Semestre</option>
-              <option value="">1° semestre</option>
-              <option value="">2° semestre</option>
-            </select>
-
-            <label for="diaSemana">Dia da Semana </label>
-            <input type="date" id="diaSemana" name="diaSemana" required>
-
-            <label for="horario">Horario</label>
-            <input type="time" id="horario" name="horario" required>
-
-            <button type="submit" class="btn-primary">Gerar QRCode</button>
-          </form>
-        </div>
-    </div>
+    <h2>QR Code da Aula</h2>
+    <div id="infoAula"></div>
+    <div id="qrcode"></div>
+    <div id="qrcodeDiv" style="display: flex; justify-content: center; margin: 20px 0;"></div>
+    <button id="baixarBtn" class="btn-primary">Baixar QR Code</button>
+  </div>
+</div>
 
     <div class="quadro-horarios">
   <h2>Quadro de Horários</h2>
@@ -117,14 +82,13 @@
       </tr>
     </thead>
     <tbody>
-      <!-- As linhas serão adicionadas via JavaScript -->
     </tbody>
   </table>
 
   <button id="adicionarHorario">Adicionar Horário</button>
 </div>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="../js/professor.js"></script>
 </body>
 </html>
