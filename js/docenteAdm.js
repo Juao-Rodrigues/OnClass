@@ -2,6 +2,28 @@ const btnAddProfessor = document.getElementById('btn-add-professor');
 const modalProfessor = document.getElementById('modal-professor');
 const closeModal = document.getElementById('close-modal');
 const formProfessor = document.getElementById('form-professor');
+const salvarProfessor = document.getElementById('salvar-professor');
+
+SalvarProfessor.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const professor = {
+        matricula: document.getElementById('matricula').value,
+        nome: document.getElementById('nome').value,
+        disciplina: document.getElementById('disciplina').value,
+        senhaHASH: document.getElementById('senha').value
+
+    }
+    const criarProfessor = await fetch('http://localhost:5000/professor', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(professor)
+    });
+}
+)
+
+
 
 // Abrir modal//
 btnAddProfessor.addEventListener('click', () => {
